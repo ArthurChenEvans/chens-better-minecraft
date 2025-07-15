@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overhaul: The Enchanting System - Modpack Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-overhauls-blog">
+
+<header class="navbar">
+    <a href="index.html" class="nav-logo">Modpack Notes</a>
+    <nav class="nav-links">
+        <ul>
+            <li class="nav-performance"><a href="index.html">Performance</a></li>
+            <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+            <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+            <li class="nav-qol"><a href="qol.html">QOL</a></li>
+            <li class="nav-cosmetics"><a href="cosmetics.html">Cosmetics</a></li>
+            <!-- Overhauls Dropdown -->
+            <li class="nav-overhauls dropdown">
+                <a href="overhauls_blog.html">Overhauls</a>
+                <ul class="dropdown-content">
+                    <li><a href="villagers.html">Villagers & Illagers</a></li>
+                    <li><a href="enchanting.html">Enchanting System</a></li>
+                    <li><a href="transport.html">Travel & Transport</a></li>
+                </ul>
+            </li>
+            <li class="nav-insights"><a href="insights.html">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-page">
+    <article>
+        <header class="article-header">
+            <h1>Excising the Enchanting System</h1>
+            <p class="byline">A necessary amputation of one of Minecraft's most broken mechanics.</p>
+        </header>
+
+        <section>
+            <h2>The enchanting system is fundamentally flawed</h2>
+            <p>The enchanting system, in its current state, is one of the most outrageous and poorly designed systems in the game. It needs more than a makeover; it needs to be completely scrapped. And that’s exactly what we’re doing. It’s getting nuked from orbit. Using <a href="https://www.curseforge.com/minecraft/mc-mods/kubejs" target="_blank" rel="noopener noreferrer">KubeJS</a> and its addons, every method of obtaining enchantments—from tables to loot—is being removed.</p>
+        </section>
+
+        <section>
+            <h2>A Linear, Uninteresting Grind</h2>
+            <p>Why such a drastic measure? Because enchanting in Minecraft is a linear, vertical power grind. We all know the drill: get Efficiency V, Fortune III, Looting III, Unbreaking III, and Protection IV. Slap a Mending book on it—which you got from abusing a villager in a prison cell—and congratulations. You’ve "won." It’s not engaging. You become effectively invincible to all but a few threats, and Mending removes any incentive to ever seek out resources again in a game literally called *Mine*craft.</p>
+            <p>The system is riddled with "best-in-slot" choices that render all other options useless. Why use Bane of Arthropods or Smite when Sharpness is universally effective? The issue is even more pronounced with the Protection enchantment. As the wiki states, the damage reduction formula is so effective that stacking Protection IV on all armor pieces is the only logical choice, making Blast, Fire, and Projectile Protection completely redundant for general use.</p>
+            <p>And how do you get these enchantments? You play a slot machine. The enchanting table is pure RNG, with no meaningful way for the player to influence the outcome. Even the "enchantability" stat is a joke. Who is going to use golden tools for anything other than a brief moment?</p>
+            <p>It's baffling, especially when a far better-implemented system already exists in the game: potions. Potions are situational. They are consumable. You must manage your resources to create them, and you choose which ones to bring for the task at hand. This is excellent design! It promotes strategic thinking. The game should be more like this—forcing you to prepare and use the right tool for the job, rather than relying on a single "god" set that does everything best.</p>
+        </section>
+
+        <section>
+            <h2>The Replacement: A Horizontal Toolkit</h2>
+            <p>So, what replaces enchantments? We are shifting from a vertical power-climb to a horizontal system of situational gear. The cornerstone of this new system is the <a href="https://www.curseforge.com/minecraft/mc-mods/artifacts" target="_blank" rel="noopener noreferrer">Artifacts mod</a>. However, if these artifacts are found in world-generated chests, we immediately run into another fundamental design flaw of vanilla Minecraft: loot is first-come, first-served.</p>
+            <p>This is unacceptable for a server environment. It's pointless to encourage exploration if the first player online can strip every dungeon within a 5,000-block radius, leaving nothing for anyone else. To fix this, we are using the <a href="https://www.curseforge.com/minecraft/mc-mods/lootr" target="_blank" rel="noopener noreferrer">Lootr</a> mod. It converts all loot containers into player-specific instances. This means that when you find a dungeon, its chests are *your* chests. Your unemployed friend who plays 16 hours a day can't empty them before you get there. This makes exploration for Artifacts a consistently viable and rewarding activity for every single player on the server, not just the first one to find a structure.</p>
+            <p>With that solved, Artifacts can function as intended. They are trinkets found by exploring the world, looting these instanced chests, and fighting mimics. You have a limited number of slots to equip them, so you must choose wisely. Instead of raw stat boosts, they offer unique, situational abilities—like a double jump, increased mining speed, or immunity to knockback. It's a win-win: exploration becomes rewarding again, and player power comes from a collection of interesting choices, not a linear grind.</p>
+        </section>
+
+        <section>
+            <h2>Addressing the Consequences</h2>
+            <p>Removing enchanting creates new problems, but these problems have interesting solutions that create better gameplay loops.</p>
+            <ul>
+                <li><strong>The Fortune Problem:</strong> Without Fortune, resource gathering becomes a slog. Our solution is to leverage a Quark feature: golden tools now come with an inherent <strong>Fortune III</strong>. This creates a fantastic new dynamic. Gold, once useless, is now a valuable resource for "fortune mining." You must constantly choose when to use your fragile but powerful golden pickaxe, creating a strategic trade-off and a real reason to stock up on gold.</li>
+                <li><strong>The Repair Problem:</strong> Without Mending and Unbreaking, tools will break. Repair is now essential. But the vanilla anvil is a horribly designed block. It has an arbitrary level cap, costs XP <em>and</em> resources, and it breaks. Why? To force you back to the awful enchanting system. We're fixing it. With <a href="https://www.curseforge.com/minecraft/mc-mods/unbreakable-anvil" target="_blank" rel="noopener noreferrer">Unbreakable Anvil</a> and <a href="https://modrinth.com/mod/no-xp-anvils" target="_blank" rel="noopener noreferrer">No XP Anvils</a>, repair becomes a fair, purely resource-based mechanic.</li>
+                <li><strong>The Armor Problem:</strong> Without Protection, armor scaling is unbalanced. We solve this with the <a href="https://www.curseforge.com/minecraft/mc-mods/armor-damage-scaling-forge-fabric" target="_blank" rel="noopener noreferrer">Armor & Damage Scaling</a> mod. This mod provides a consistent, logical formula for damage reduction, making each point of armor valuable and turning Armor Toughness into a meaningful stat that helps prevent one-shot deaths.</li>
+            </ul>
+            <p>With these changes, systems like beacons and potions become substantially more valuable. You are now encouraged to build a Haste beacon for mining, or brew a Potion of Strength for a tough fight, because you no longer have a single set of gear that does everything for you. You have to think, prepare, and engage with the world. That is better design.</p>
+        </section>
+    </article>
+</main>
+
+</body>
+</html>

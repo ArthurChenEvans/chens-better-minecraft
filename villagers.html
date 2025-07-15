@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overhaul: The Villager Problem - Modpack Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-overhauls-blog">
+
+<header class="navbar">
+    <a href="index.html" class="nav-logo">Modpack Notes</a>
+    <nav class="nav-links">
+        <ul>
+            <li class="nav-performance"><a href="index.html">Performance</a></li>
+            <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+            <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+            <li class="nav-qol"><a href="qol.html">QOL</a></li>
+            <li class="nav-cosmetics"><a href="cosmetics.html">Cosmetics</a></li>
+            <!-- Overhauls Dropdown -->
+            <li class="nav-overhauls dropdown">
+                <a href="overhauls_blog.html">Overhauls</a>
+                <ul class="dropdown-content">
+                    <li><a href="villagers.html">Villagers & Illagers</a></li>
+                    <li><a href="enchanting.html">Enchanting System</a></li>
+                    <li><a href="transport.html">Travel & Transport</a></li>
+                </ul>
+            </li>
+            <li class="nav-insights"><a href="insights.html">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-page">
+    <article>
+        <header class="article-header">
+            <h1>The Villager Problem</h1>
+            <p class="byline">A design document on the surgical removal of a flawed system.</p>
+        </header>
+
+        <section>
+            <h2>Ok, I think this really needs to be said:</h2>
+            <p>Villagers, as they are implemented, are a design tumor on the core of Minecraft. They amuse for a short while, then you realize the gaping balance holes they create and are forced to either ignore them or abuse them, because:</p>
+            <p><strong>a)</strong> a single Librarian trade trivializes the entire treasure-enchantment system, which is a key driver for exploration.</p>
+            <p><strong>b)</strong> their mechanics encourage the least engaging form of gameplay imaginable: cramming them into 1x1 cells and repeatedly performing a single, mindless task for infinite gain.</p>
+            <p><strong>c)</strong> their very existence provides a "path of least resistance" so efficient that it renders entire branches of the game, like fishing for treasure or exploring for enchanted gear, completely obsolete.</p>
+        </section>
+
+        <section>
+            <h2>A Misguided Design Tangent</h2>
+            <p>The recent biome-dependent trading rules are a classic band-aid fix. It's an attempt to patch a fundamentally broken concept without addressing the root cause. It's a nice thought, but it doesn't change the fact that the system itself is an unwelcome tangent, entirely secondary to the core gameplay of Minecraft.</p>
+            <p>To my mind, that core gameplay revolves around two things: <em>exploration</em> and <em>construction</em>. You venture into a dangerous, unknown world to gather resources, and then you return to build, craft, and fortify. Villagers have almost nothing to do with either of these. They are a static, passive system in a game that is at its best when it is dynamic and active.</p>
+            <p>On the downside: so far, all the creatures in the game have worked perfectly well with VERY simple AI. Nobody cares if creepers and sheep fall over cliff edges. In fact, the simplicity of that behavior led to emergent gameplay in the form of mob traps.</p>
+            <p>But NPCs with an ECONOMY are a whole other ballgame. Suddenly, you are opening up an AI and game-balance can of worms. You need robust systems to prevent exploits. You need to create a wide range of interesting and balanced trades to make the system worthwhile beyond one or two key items. You need to ensure the system doesn't invalidate other, more engaging mechanics.</p>
+            <p>In other words, I believe that in adding Villager trading, the game put itself on a development slippery slope. It committed to a massive design challenge that it has, so far, failed to solve, and in doing so, has actively harmed the core gameplay loops that make Minecraft great.</p>
+        </section>
+
+        <section>
+            <h2>The Solution: Surgical Removal</h2>
+            <p>So, for this modpack, I have cut my losses. The tumor is being excised. There is no point in trying to balance a system that is rotten at its core. There are far more important features that are being restored to relevance by this action.</p>
+            <p>This is achieved with a few simple, clean cuts:</p>
+            <ul>
+                <li>First, the <a href="https://modrinth.com/datapack/village-nullifier" target="_blank" rel="noopener noreferrer">Village Nullifier</a> is used to prevent the structures from ever generating. No villages, no problem.</li>
+                <li>Second, <a href="https://modrinth.com/mod/stop-villager-trades" target="_blank" rel="noopener noreferrer">Stop Villager Trades</a> acts as a failsafe, ensuring that even if a villager is spawned through some other means, its primary balance-breaking function is disabled.</li>
+                <li>Finally, a combination of <a href="https://www.curseforge.com/minecraft/mc-mods/kubejs" target="_blank" rel="noopener noreferrer">KubeJS</a> and <a href="https://www.curseforge.com/minecraft/mc-mods/in-control" target="_blank" rel="noopener noreferrer">In Control!</a> scripts are used to scrub any remaining spawn instances from the game. They will not appear. Period. The same goes for their useless cousin, the Wandering Trader.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>The Aftermath</h2>
+            <p>With this system gone, two glaring issues appear. What now? And what about the Pillagers?</p>
+            <p>The first point is simple. We return to the systems that worked before. We make them better. We make them relevant again. By removing the path of least resistance, we make the more engaging paths—the ones that involve actually playing the game—viable once more. These are large enough topics to warrant their own design documents:</p>
+            <ul>
+                <li><a href="fishing_overhaul.html">[The Restoration of Fishing]</a></li>
+                <li><a href="exploration_overhaul.html">[The Renewed Purpose of Exploration]</a></li>
+            </ul>
+            <p>As for Pillagers, they are a separate issue. Certain mods rely on them, and they provide a necessary element of conflict in the world. They will remain, but their narrative connection to villagers is severed. They are simply a hostile faction of their own, a threat to be overcome, no longer tied to the passive, exploitable system we have left behind.</p>
+        </section>
+
+    </article>
+</main>
+
+</body>
+</html>

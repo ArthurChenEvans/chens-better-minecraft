@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overhaul: Travel & Transportation - Modpack Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-overhauls-blog">
+
+<header class="navbar">
+    <a href="index.html" class="nav-logo">Modpack Notes</a>
+    <nav class="nav-links">
+        <ul>
+            <li class="nav-performance"><a href="index.html">Performance</a></li>
+            <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+            <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+            <li class="nav-qol"><a href="qol.html">QOL</a></li>
+            <li class="nav-cosmetics"><a href="cosmetics.html">Cosmetics</a></li>
+            <!-- Overhauls Dropdown -->
+            <li class="nav-overhauls dropdown">
+                <a href="overhauls_blog.html">Overhauls</a>
+                <ul class="dropdown-content">
+                    <li><a href="villagers.html">Villagers & Illagers</a></li>
+                    <li><a href="enchanting.html">Enchanting System</a></li>
+                    <li><a href="transport.html">Travel & Transport</a></li>
+                </ul>
+            </li>
+            <li class="nav-insights"><a href="insights.html">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-page">
+    <article>
+        <header class="article-header">
+            <h1>Fixing Transportation</h1>
+            <p class="byline">On restoring purpose to a collection of otherwise useless mechanics.</p>
+        </header>
+
+        <section>
+            <h2>The Core Problem: A Lack of Choice</h2>
+            <p>Let's be blunt: vanilla transportation is a mess. Players don't engage with core systems like horses and minecarts because they are fundamentally outclassed. In my experience, the progression is always the same: you run everywhere, use a boat for oceans, and then the moment you get an Elytra, every other form of travel becomes obsolete. It is the literal definition of the "path of least resistance" problem, and it makes for terribly uninteresting gameplay.</p>
+            <p>Now, a lot of this will eventually be addressed by larger systems like Create trains and various magic mods, but those are their own topics. For now, we need to address the foundational issues.</p>
+        </section>
+
+        <section>
+            <h2>Horses: A Case of Misguided Additions</h2>
+            <p>Horses are lame. They're a neat idea, but they lack any real utility beyond being a slight speed boost early on. What’s truly baffling is Mojang’s solution to this: adding the Camel. Why add an entirely new mob to solve the two-player travel problem when you could have just added more depth to the existing horse system? It’s a classic example of adding new bloat instead of enhancing what’s already there.</p>
+            <p>With enchantments removed, we can't just slap new powers onto saddles. Instead, we need to give horses a real, tangible purpose. We need to buff their utility.</p>
+            <ul>
+                <li>First, we fix the two-player problem directly with <a href="https://www.curseforge.com/minecraft/mc-mods/two-players-one-horse" target="_blank" rel="noopener noreferrer">Two Players, One Horse</a>. It does exactly what it says. Two players can now ride a single horse. Simple, logical, done.</li>
+                <li>To take this further, we add <a href="https://modrinth.com/mod/astikorcarts-redux" target="_blank" rel="noopener noreferrer">AstikorCarts Redux</a>. This introduces carts that can be attached to a horse, including an Animal Cart. Now, a single horse can carry a team of four players—two on the horse, two in the cart. It also adds supply carts for mobile storage and plows for farming. Suddenly, the horse is a valuable multiplayer and utility vehicle.</li>
+                <li>Finally, to tie this back into the core construction loop, we add <a href="https://www.curseforge.com/minecraft/mc-mods/block-runner-forge/" target="_blank" rel="noopener noreferrer">Block-Runner</a>. This mod allows certain blocks, like paths, to grant a speed boost. Now there is a real, mechanical incentive to build roads and infrastructure for your horses, rather than just riding them over raw terrain.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Boats and Dolphins</h2>
+            <p>Boats, for the most part, are fine. They serve their purpose. We can, however, give them a simple QoL improvement with <a href="https://www.curseforge.com/minecraft/mc-mods/boatload" target="_blank" rel="noopener noreferrer">Boatload</a>. This adds larger boats for more players and a furnace-powered boat for automated travel, which is a nice touch.</p>
+            <p>This does, however, highlight the redundancy of the Dolphin. Their only real purpose is the "Dolphin's Grace" effect, which is easily replicated by other means. If a better use for them can't be found, their spawn will be disabled via In Control. There is no room for single-purpose, vestigial features.</p>
+        </section>
+
+        <section>
+            <h2>Minecarts and Magic</h2>
+            <p>With the future addition of Create trains for long-distance travel, minecarts no longer need to pretend they are a viable cross-country solution. Instead, they can comfortably fill their intended niche: short-distance travel within a base, or for their original purpose in a mineshaft. This is perfectly acceptable. They have a use, and it doesn't conflict with other systems.</p>
+            <p>Other forms of situational traversal, like blink spells from Iron's Spells 'n Spellbooks or the fling staff from Ars Nouveau, will exist. But these are costly, short-range tools for combat and building, not replacements for a dedicated travel network. They fill their own niche without invalidating others.</p>
+        </section>
+
+        <section>
+            <h2>The Elytra: A Design Catastrophe</h2>
+            <p>And now we come to the main offender. The Elytra is, without a doubt, the single most game-breaking item when it comes to travel. Combined with Mending and a creeper farm, it grants infinite, high-speed, three-dimensional flight. It completely trivializes distance, danger, and the need for any of the infrastructure mentioned above. It makes a mockery of every other system.</p>
+            <p>It has to go. There is no balancing it. Its very concept is antithetical to a world that values exploration and construction. For this, we are using the <a href="https://modrinth.com/datapack/no-elytra" target="_blank" rel="noopener noreferrer">No Elytra</a> datapack. It ensures they cannot be obtained, used, or even exist in a player's inventory. It is a complete and total removal.</p>
+            <p>The Riptide Trident problem is, thankfully, already solved by our removal of the enchanting system. With these changes, transportation in "Chen's Better Minecraft" is no longer about finding the one "best" method, but about building and using a diverse set of tools for the task at hand.</p>
+        </section>
+
+    </article>
+</main>
+
+</body>
+</html>
