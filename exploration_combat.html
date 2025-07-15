@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overhaul: Exploration & Combat - Modpack Notes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-overhauls">
+
+<header class="desktop-header">
+  <a href="index.html" class="nav-logo">Modpack Notes</a>
+  <nav class="desktop-nav-links">
+    <ul>
+      <li class="nav-performance"><a href="index.html">Performance</a></li>
+      <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+      <li class="nav-qol"><a href="qol.html">QOL</a></li>
+      <li class="nav-cosmetics"><a href="cosmetics.html">Cosmetics</a></li>
+      <li class="nav-overhauls"><a href="overhauls_blog.html">Overhauls</a></li>
+      <li class="nav-insights"><a href="insights.html">Insights</a></li>
+    </ul>
+  </nav>
+</header>
+
+<nav class="mobile-footer">
+  <a href="index.html" class="nav-performance"><span>Performance</span></a>
+  <a href="bugfixing.html" class="nav-bugfixing"><span>Bugfixing</span></a>
+  <a href="qol.html" class="nav-qol"><span>QOL</span></a>
+  <a href="cosmetics.html" class="nav-cosmetics"><span>Cosmetics</span></a>
+  <a href="overhauls_blog.html" class="nav-overhauls"><span>Overhauls</span></a>
+  <a href="insights.html" class="nav-insights"><span>Insights</span></a>
+</nav>
+
+<main class="article-page">
+  <article>
+    <header class="article-header">
+      <h1>Fixing Exploration and Combat</h1>
+      <p class="byline">A manifesto on replacing mindless spam with tactical engagement.</p>
+    </header>
+
+    <section>
+      <h2>Deconstructing a Failed System</h2>
+      <p>Let's be blunt: the vanilla combat and exploration loop is a design failure. It is a system that actively devolved into mindless spam-clicking where gear trumps skill, and whose traversal mechanics are so profoundly uninteresting that players will inevitably choose the path of least resistance: a single item that invalidates the entire world. The common modded solution of "making enemies tougher" by just inflating their health and damage is equally lazy. Creating damage sponges is not good game design; it's a tedious grind that punishes the player for not having the "correct" set of enchanted gear. We are not patching this system. We are excising it and building a better one from first principles.</p>
+    </section>
+
+    <section>
+      <h2>Pillar I: The Physical Language</h2>
+      <p>The first principle is that player action must require skill. The moment-to-moment gameplay cannot be passive. We are injecting skill back into the core physical interactions through a suite of mods that work in concert to give the player a true "movement and combat vocabulary."</p>
+      <ul>
+        <li><strong>The Attack:</strong> <a href="https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus" target="_blank" rel="noopener noreferrer">Better Combat</a> is the cornerstone. It fundamentally changes the nature of melee. It replaces spam-clicking with a deliberate, animation-driven system where hitboxes match the weapon's swing. A wide slash with a sword feels different from a narrow thrust with a spear because they *are* different. This forces tactical positioning and weapon choice, and its functional dual-wielding system opens up entirely new build possibilities.</li>
+        <li><strong>The Defense:</strong> The vanilla shield is a passive, boring tool. It is replaced by an active, skill-based defense: the <a href="https://www.curseforge.com/minecraft/mc-mods/combat-roll" target="_blank" rel="noopener noreferrer">Combat Roll</a>. This provides a dedicated dodge/roll mechanic with proper invincibility frames. It is a tool for repositioning and avoiding damage that relies on timing and spatial awareness, not holding down a button.</li>
+        <li><strong>The Traversal:</strong> Minecraft's world is a 3D canvas, but vanilla gives you a 1D brush. <a href="https://www.curseforge.com/minecraft/mc-mods/parcool" target="_blank" rel="noopener noreferrer">Parcool!</a> fixes this. It elevates traversal from simply walking to a dynamic, expressive activity. Wall-running, vaulting, sliding, and clinging to ledges makes navigating the world itself a skill, transforming every cliff and dungeon into an interactive puzzle rather than a simple obstacle.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pillar II: The Governor of Action - Stamina</h2>
+      <p>With these powerful new actions, we need a limiting resource to prevent spam and demand tactical thought. For this, we are co-opting the stamina system from the <a href="https://www.curseforge.com/minecraft/mc-mods/paragliders" target="_blank" rel="noopener noreferrer">Paragliders</a> mod. While paragliders themselves offer a fantastic mid-game traversal option, it is their stamina wheel that becomes a universal mechanic. Thanks to the <a href="https://www.curseforge.com/minecraft/mc-mods/better-paragliders" target="_blank" rel="noopener noreferrer">Better Paragliders</a> integration, this system is tied directly into combat. Now, *everything* costs stamina: running, swimming, gliding, dodging, blocking, and attacking. You cannot swing your weapon endlessly or roll through every attack. Combat becomes a resource management puzzle, a tactical rhythm of engaging, spending stamina, then disengaging to recover. This single change makes every encounter, especially with the formidable Cataclysm bosses, a true test of skill and resource management.</p>
+      <p>This system also creates genuine "build" diversity. With Spirit Orbs found through exploration, you face a critical decision: Do you invest in more health to become a durable 'tank' who can absorb a mistake, or more stamina to become a nimble 'skirmisher' who can perform more actions? This replaces the linear "get all the best enchants" grind with a meaningful, player-driven choice about their character's specialization. It is real character progression.</p>
+    </section>
+
+    <section>
+      <h2>Pillar III: The Arcane Alternative</h2>
+      <p>With physical combat redefined, we can now introduce a true parallel path. Magic, in this pack, is not just another weapon. It's a completely different way to solve problems. <a href="https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks" target="_blank" rel="noopener noreferrer">Iron's Spells 'n Spellbooks</a> provides a classic, robust magic system. Its progression is knowledge-based, requiring you to hunt for scrolls, gather rare reagents, and construct arcane apparatuses. A player can choose to be a powerful wizard *instead* of a powerful warrior, not just a warrior who happens to have a fireball.</p>
+      <p>This system is then deepened with the <a href="https://www.curseforge.com/minecraft/mc-mods/to-tweaks-irons-spells" target="_blank" rel="noopener noreferrer">T.O Magic 'n Extras</a> addon. This isn't just a content pack; it's an integration mod. It masterfully weaves the magic system into the other major content mods, creating new spells, weapons, and armor sets themed around the bosses from Cataclysm and the biomes from Alex's Caves. This creates a cohesive world where finding a new area or defeating a new boss can directly advance your magical capabilities.</p>
+    </section>
+
+    <section>
+      <h2>Pillar IV: A World That Fights Back</h2>
+      <p>Now that the player is a skilled, tactical agent, they need a world that justifies their abilities—a world that evolves alongside them and presents an ever-increasing threat. To this end, we introduce a dynamic difficulty system with <a href="https://www.curseforge.com/minecraft/mc-mods/majruszs-progressive-difficulty" target="_blank" rel="noopener noreferrer">Majrusz's Progressive Difficulty</a>. As you progress through the game—entering the Nether, defeating the Ender Dragon—the world enters new "stages." In these later stages, mobs spawn in organized groups with powerful leaders, new challenging events like the Undead Army can occur, and existing threats gain new abilities. The world itself gets harder as you get stronger.</p>
+      <p>To cap this off, we need truly monumental challenges. The overworld is made perilous by the roaming beasts of <a href="https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons" target="_blank" rel="noopener noreferrer">Ice and Fire: Dragons</a>. The underground is transformed by the dangerous, unique biomes of <a href="https://www.curseforge.com/minecraft/mc-mods/alexs-caves" target="_blank" rel="noopener noreferrer">Alex's Caves</a>. Dedicated boss dungeons from <a href="https://www.curseforge.com/minecraft/mc-mods/lendercataclysm" target="_blank" rel="noopener noreferrer">L_Ender's Cataclysm</a> (and its <a href="https://www.curseforge.com/minecraft/mc-mods/cataclysm-apotheosis-addon" target="_blank" rel="noopener noreferrer">Apotheosis Addon</a>) provide raid-like encounters. And finally, the vanilla bosses are elevated to their proper status as capstone events with <a href="https://www.curseforge.com/minecraft/mc-mods/ender-trigon" target="_blank" rel="noopener noreferrer">Ender Trigon</a> and the <a href="https://modrinth.com/datapack/wither-storm-rework" target="_blank" rel="noopener noreferrer">Wither Storm Rework</a>.</p>
+      <p>In this modpack, combat is tactical, movement is skill-based, and the world is a constantly evolving threat. You are no longer a gear-checking automaton; you are a tactical agent in a dangerous and rewarding world. That is better design.</p>
+    </section>
+</main>
+
+</body>
+</html>
