@@ -87,7 +87,8 @@ body {
 #page-bugfixing .nav-bugfixing a,
 #page-enhancements .nav-enhancements a,
 #page-qol .nav-qol a,
-#page-insights .nav-insights a {
+#page-insights .nav-insights a,
+#page-cosmetics .nav-cosmetics a {
     background-color: var(--accent-color);
     color: white;
     font-weight: 600;
