@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Mods - Modpack Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-performance">
+
+<header class="navbar">
+    <a href="index.html" class="nav-logo">Modpack Notes</a>
+    <nav class="nav-links">
+        <ul>
+            <li class="nav-performance"><a href="index.html">Performance</a></li>
+            <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+            <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+            <li class="nav-qol"><a href="qol.html">QOL</a></li>
+            <li class="nav-insights"><a href="insights.html">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Performance and Utility Mods</h1>
+
+    <h2>Both</h2>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/modernfix" target="_blank" rel="noopener noreferrer">ModernFix</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is the ultimate project manager for your modded game. When you launch Minecraft, it acts like an expert logistics officer, making sure all your mods and game assets load in the fastest, most efficient order possible. It also acts as a handyman, fixing hundreds of small but common bugs and preventing the game from crashing during startup, especially in large modpacks.</p>
+            <h4>Technical Explanation</h4>
+            <p>ModernFix applies a suite of targeted patches to optimize the game's launch process, most notably by deferring the initialization of the DataFixerUpper (DFU) system. It parallelizes resource loading, caches mod-loading data to speed up subsequent launches, backports critical bugfixes from newer Minecraft versions, and resolves common concurrency-related crashes that occur in multithreaded environments.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/ferritecore" target="_blank" rel="noopener noreferrer">FerriteCore</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod drastically cuts down on how much memory (RAM) the game uses. Imagine the game has to remember the state of every single block (e.g., "oak stairs, facing north, top half, waterlogged"). Normally, it writes this down on a new sticky note for every single stair. FerriteCore creates one master sticky note for "north-facing oak stairs" and just has the game reference that one note, saving a massive amount of memory.</p>
+            <h4>Technical Explanation</h4>
+            <p>FerriteCore heavily optimizes memory usage by replacing redundant block state and block property objects with single, canonical instances. It hooks into the block state creation process and uses a hash map to return a reference to an existing identical object instead of allocating a new one, significantly reducing the RAM footprint required to hold world data in memory.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://modrinth.com/mod/memoryleakfix" target="_blank" rel="noopener noreferrer">Memory Leak Fix</a>, <a href="https://www.curseforge.com/minecraft/mc-mods/alltheleaks" target="_blank" rel="noopener noreferrer">AllTheLeaks</a>, <a href="https://www.curseforge.com/minecraft/mc-mods/gputape" target="_blank" rel="noopener noreferrer">GpuTape</a>, & <a href="https://www.curseforge.com/minecraft/mc-mods/saturn" target="_blank" rel="noopener noreferrer">Saturn</a></summary>
+        <div class="description-content">
+            <h4>The Specialist Team Analogy</h4>
+            <p>
+                <strong>Saturn & Memory Leak Fix (The Proactive Engineers & General Repair Crew):</strong> <strong>Saturn</strong> redesigns Minecraft's code to be more efficient from the start, preventing waste before it happens (less memory allocation). <strong>Memory Leak Fix</strong> is the experienced repairman who patches well-known, common leaks in the game's original plumbing (vanilla RAM leaks).
+            </p>
+            <p>
+                <strong>AllTheLeaks (The Modded Equipment Specialist):</strong> This is the Hazmat Team brought in to handle leaks from all the third-party equipment you installed (your other mods). It contains a library of specific fixes for bugs in other popular mods.
+            </p>
+            <p>
+                <strong>GpuTape (The Graphics Card Technician):</strong> This specialist doesn't work on the main building's plumbing (System RAM); they work on the video displays and security monitors (your Graphics Card's VRAM), ensuring old images are properly wiped to prevent visual stutter and crashes.
+            </p>
+            <h4>The Technical Explanation</h4>
+            <p>
+                This is a complementary suite of memory management mods. <strong>Saturn</strong> focuses on reducing memory allocations via object caching to lower GC pressure. <strong>Memory Leak Fix</strong> patches known bugs in vanilla code where objects are not de-allocated correctly. <strong>AllTheLeaks</strong> provides targeted patches for memory leaks found in other community mods. <strong>GpuTape</strong> specifically targets VRAM leaks by ensuring graphical resources (like textures and buffers) are properly released from the GPU's memory.
+            </p>
+            <h4>Conclusion</h4>
+            <p>This is a perfect team. They do not conflict and cover every major category of memory issue: inefficient allocation (Saturn), vanilla RAM leaks (MLF), modded RAM leaks (ATL), and graphics VRAM leaks (GpuTape).</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/krypton" target="_blank" rel="noopener noreferrer">Krypton</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod revamps the game's internal "postal service" that sends information between your computer and a server. It uses more efficient package bundling and smarter delivery routes, resulting in a faster and more stable connection with less processing overhead on both ends.</p>
+            <h4>Technical Explanation</h4>
+            <p>Krypton optimizes Minecraft's networking stack by replacing vanilla Netty handlers with highly-efficient versions derived from the Velocity proxy. It performs flush consolidation to reduce system calls and packet serialization overhead, which lowers latency and improves server performance under heavy network load.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/fastfurnace" target="_blank" rel="noopener noreferrer">FastFurnace</a>, <a href="https://www.curseforge.com/minecraft/mc-mods/fastsuite" target="_blank" rel="noopener noreferrer">Fastsuite</a>, & <a href="https://www.curseforge.com/minecraft/mc-mods/notenoughrecipebook" target="_blank" rel="noopener noreferrer">NERB</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>
+                <strong>FastFurnace & Fastsuite:</strong> These are efficiency experts for crafting. They teach furnaces and crafting tables to remember the last recipe they used, so they don't have to re-read the entire game's cookbook every second. This drastically improves server performance when many machines are running.<br>
+                <strong>NERB (NotEnoughRecipeBook):</strong> Since you have JEI to look up recipes, the game's built-in recipe book is useless. NERB fires that useless librarian and throws out their entire office. This makes your personal player file much smaller, so you can log into worlds faster.
+            </p>
+            <h4>Technical Explanation</h4>
+            <p>This trio optimizes recipe handling. **FastFurnace** and **Fastsuite** cache the last used recipe for their respective blocks to avoid iterating through the entire `RecipeManager` registry each tick. **NERB** removes the vanilla recipe book functionality entirely. This prevents the server from tracking thousands of unlocked recipes per player, significantly reducing player NBT data size, which speeds up login times and data sync operations.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/fast-item-frames" target="_blank" rel="noopener noreferrer">Fast Item Frames</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/fast-paintings" target="_blank" rel="noopener noreferrer">Fast Paintings</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>In vanilla Minecraft, item frames and paintings are technically tiny, invisible "creatures" stuck to the wall that the game has to constantly check on. This is very inefficient and causes lag. This duo of mods gets rid of those performance-draining creatures and replaces them with a much simpler "sticker" or "wallpaper" that's part of the wall itself, making them incredibly fast for your computer to handle.</p>
+            <h4>Technical Explanation</h4>
+            <p>Both mods replace their respective entities (`ItemFrameEntity`, `PaintingEntity`) with a custom `Block` and its associated `BlockEntity`. This transitions the objects from the computationally expensive entity system (requiring dynamic ticking and rendering) to the highly optimized static world grid. This fundamentally reduces both server-side tick overhead and client-side rendering load.</p>
+            <h4>The Critical Warning: Permanent Conversion</h4>
+            <p>Both mods convert the vanilla entities in your world to their new block format. If you ever remove these mods, the game will not know what these new blocks are, and <strong>they will disappear from your world forever.</strong> The risk is significantly higher for item frames holding valuable items than for decorative paintings.</p>
+            <h4>Verdict</h4>
+            <p>A fantastic "sister mod" duo that makes any art gallery or storage hall run beautifully. Add them only if you are willing to make a permanent commitment to keeping them in your modpack for the entire life of your world.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://modrinth.com/mod/packet-fixer" target="_blank" rel="noopener noreferrer">Packet Fixer</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Sometimes in heavily modded Minecraft, the "packages" of information sent between your computer and the server are too big for the standard mailboxes. This can happen when you have an item with tons of complex data. This mod simply gives you much bigger mailboxes, preventing a whole category of "Packet too big" crashes and disconnection errors.</p>
+            <h4>Technical Explanation</h4>
+            <p>This utility mod increases the maximum size limit for network packets defined in the Netty networking layer, which is hardcoded to a relatively small value in vanilla. By raising this limit, it prevents `PacketTooBigException` errors that can occur in modded environments when complex item NBT data, large world chunks, or other modded data structures exceed the vanilla size limits during network transfer.</p>
+        </div>
+    </details>
+
+    <h2>Server-Side</h2>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/radium-reforged" target="_blank" rel="noopener noreferrer">Radium</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is a life coach for every creature and process in the game. It teaches mobs to think more efficiently, redstone to calculate faster, and the world to grow more logically. It doesn't change what they do, just that they do it with far less processing power, which is critical for server stability (TPS).</p>
+            <h4>Technical Explanation</h4>
+            <p>A fork of Lithium for Forge, Radium optimizes numerous game logic systems by replacing vanilla's often inefficient algorithms with more performant ones. This includes mob AI (pathfinding, goal selection), block ticking, world generation, physics calculations, and explosion mechanics.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/c2me-fabric" target="_blank" rel="noopener noreferrer">C2ME</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/noisium" target="_blank" rel="noopener noreferrer">Noisium</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is the ultimate world-building team. Instead of one guy building the world chunk by chunk, **C2ME** hires an entire army of construction workers and has them build different parts of the world all at the same time. **Noisium** is the expert architect who provides that army with even better, hyper-optimized blueprints, so each worker builds their section even faster.</p>
+            <h4>Technical Explanation</h4>
+            <p>A highly synergistic pair for world generation. **C2ME** (Concurrent Chunk Management Engine) parallelizes the entire world generation process—from terrain shaping to feature placement—across multiple CPU cores. **Noisium** applies specific algorithmic optimizations to the noise generation and biome placement functions, which C2ME then executes on all available threads for maximum throughput.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/immersive-optimization" target="_blank" rel="noopener noreferrer">Immersive Optimization</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/mobtimizations" target="_blank" rel="noopener noreferrer">Mobtimizations</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is your entity management dream team. **Immersive Optimization** is the "don't work if no one's watching" manager. It tells creatures that are very far away from you to slow down and take a break, saving a huge amount of performance. **Mobtimizations** is the "work smarter, not harder" coach. For creatures that *are* active, it tells them to not waste time constantly looking for enemies or re-calculating their path if they already have one.</p>
+            <h4>Technical Explanation</h4>
+            <p>A powerful, synergistic combination for entity tick management. **Immersive Optimization** is a dynamic tick-rate scheduler, reducing the update frequency of distant or inactive entities. **Mobtimizations** reduces the computational cost *within* an individual tick by throttling expensive AI tasks like target scanning and pathfinding. They work together to dramatically reduce the server-side cost of entities. *This combination was chosen over `ServerCore` as it offers a more granular approach to entity management.*</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/alternate-current" target="_blank" rel="noopener noreferrer">Alternate Current</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Vanilla redstone is like a chain of people whispering a message to pass it along, which is slow, chaotic, and creates a ton of unnecessary noise (block updates). This mod replaces them with a master electrician who instantly calculates where the power should go and flips all the switches at once, perfectly and with almost zero lag.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod replaces Minecraft's recursive, locational, and update-heavy redstone dust algorithm. It calculates the power level for an entire wire network first, then emits a minimal, non-redundant set of block updates only when the final state is known. This eliminates massive amounts of lag from complex redstone contraptions.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/dimthreads" target="_blank" rel="noopener noreferrer">Dimensional Threading</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Normally, your server is like a single chef trying to cook for three different tables (Overworld, Nether, and End) at once. If one table has a super complicated order (a giant laggy farm in the Nether), the chef gets bogged down, and service for all the other tables slows to a crawl. This mod hires two more chefs and gives each one their own dimension to cook for. They all work at the same time, so Nether lag no longer slows down the Overworld.</p>
+            <h4>Technical Explanation</h4>
+            <p>The vanilla `MinecraftServer` ticks all dimensions sequentially on a single main thread. If one dimension's tick time is high, the entire server's MSPT suffers. This mod assigns each dimension to its own thread from a dedicated thread pool, ticking them in parallel. The server then waits for all threads to finish before starting the next tick, with the final MSPT being determined by the *slowest individual dimension*, effectively isolating lag.</p>
+            <h4>The Risks and Requirements</h4>
+            <p><strong>CPU Cores:</strong> You MUST have enough physical or virtual CPU threads (at least `Number of Dimensions + 1`). If you have too few, this mod will make performance worse by causing thread contention.<br><strong>Thread-Unsafe Mods:</strong> This is the biggest risk. Many content mods are not written to be "thread-safe" and assume they will only ever be accessed by the main server thread. This can lead to race conditions, catastrophic crashes, and world corruption if a conflict occurs.</p>
+            <h4>Verdict</h4>
+            <p>A high-power, high-risk mod. Strongly consider it for a dedicated server with significant, simultaneous player activity and infrastructure in multiple dimensions. Add it last and be prepared to remove it if you experience strange crashes, as it may be a conflict with a thread-unsafe mod.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://modrinth.com/mod/structure-layout-optimizer" target="_blank" rel="noopener noreferrer">Structure Layout Optimizer</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>When the game builds a village or another large structure, it's surprisingly inefficient, like a builder checking every single brick against every other brick in the entire project for collisions. This mod gives the builder a smarter set of blueprints and tools, making it check only the bricks that are nearby. This significantly reduces the lag spikes caused by generating large, complex structures.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod optimizes Jigsaw structure generation by replacing the computationally expensive `VoxelShape` intersection checks with a much faster `BoxOctree` data structure. The octree allows for rapid spatial querying, so intersection tests are only performed against nearby pieces instead of the entire list. It also adds early-exit logic for Jigsaw connection checks and optimizes the loading of large NBT structure files.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/let-me-despawn" target="_blank" rel="noopener noreferrer">Let Me Despawn</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod fixes a vanilla annoyance where zombies that pick up a piece of dirt, or skeletons that pick up your old helmet, will never disappear naturally. This can lead to a world full of useless, lag-causing mobs over time. This mod lets them despawn like normal mobs but forces them to drop the gear they were holding, so you don't lose anything important.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod modifies the mob persistence logic. Normally, any mob with items in its armor or hand slots (`canPickUpLoot` is true) has its persistence flag set and is excluded from natural despawning. This mod alters the despawn check to ignore this flag for non-named mobs but ensures their held/equipped items are dropped to the ground upon despawning to prevent item loss.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://modrinth.com/mod/staaaaaaaaaaaack" target="_blank" rel="noopener noreferrer">Aaaaaaaaaaaa (Item Drop Stacking)</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>When a Creeper blows up a chest full of cobblestone, you get hundreds of individual items on the ground, which can cause immense lag. This mod is the smartest solution: it allows all those individual cobblestone items to merge into a single, super-stack on the ground. Instead of the game tracking 500 separate things, it only has to track one, drastically improving performance.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod alters the `ItemEntity` merging logic. Normally, items will only merge up to their maximum stack size (e.g., 64). This mod allows them to merge into a single entity far beyond that limit, storing the total count in NBT data. This massively reduces the number of entities that need to be ticked and rendered in situations with large quantities of a single dropped item. *This was chosen over other solutions like `Get It Together, Drops!` or `DarkTimer` because it is the most effective and elegant performance fix.*</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://modrinth.com/mod/cerulean-advancements" target="_blank" rel="noopener noreferrer">Cerulean (Achievement Optimizer)</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>In a big modpack, the game is constantly checking your entire inventory against a huge list of every possible achievement every time you pick something up. This is a massive source of hidden lag. This mod is an efficiency expert that completely revamps this process, making the checks happen less often and in a much smarter way, eliminating these lag spikes.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod is a fork of Icterine that optimizes the `InventoryChangeTrigger`. It does this in two ways: it optimizes the internal logic to avoid redundant checks (e.g., checking item count before heavy NBT/tag matching) and adds a configurable tick-skipping system, so the trigger doesn't fire on every single inventory modification. *This was chosen because it combines the best features of its predecessors (`Icterine`, `Achievements Optimizer`) into one modern mod.*</p>
+        </div>
+    </details>
+
+    <h2>Client-Side</h2>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/embeddium" target="_blank" rel="noopener noreferrer">Embeddium</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/oculus" target="_blank" rel="noopener noreferrer">Oculus</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is your foundational graphics team. **Embeddium** is a genius artist who completely replaces the game's outdated drawing methods with modern, efficient techniques for a massive FPS boost. **Oculus** is the specialist assistant who works directly with Embeddium to add beautiful, complex lighting, shadows, and water effects (shaders).</p>
+            <h4>Technical Explanation</h4>
+            <p>**Embeddium** is a replacement rendering engine for Forge (a port of Sodium) that drastically optimizes chunk rendering via modern OpenGL features like batching and more efficient vertex formats. **Oculus** is a shader loader (a port of Iris) that hooks directly into Embeddium's rendering pipeline to apply post-processing shader effects. They are the essential, inseparable foundation for running shaders on this platform.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/enhanced-block-entities" target="_blank" rel="noopener noreferrer">EBE (Enhanced Block Entities)</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>The artist (Embeddium) normally has to draw every chest, sign, and bed by hand as a special, complex object, which is slow. This mod gives the artist a set of perfect, ultra-efficient stencils for those objects. They look identical but are incredibly fast to draw, and they work perfectly with shaders.</p>
+            <h4>Technical Explanation</h4>
+            <p>EBE replaces performance-intensive Block Entity Renderers (BERs/TESRs) with highly-performant baked block models that can be batched by Embeddium. It cleverly retains animations by only using the original, slower BER when an animation (like a chest opening) is actively playing. *This was chosen over `Vanillin`, whose instanced rendering technique via Flywheel is currently incompatible with shaders/Oculus.*</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/immediatelyfast" target="_blank" rel="noopener noreferrer">Immediately Fast</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is an efficiency expert who reorganizes the artist's entire workflow. Instead of drawing one bit of text, then a health bar, then more text, it tells the artist: "Do all the text at once. Then do all the health bars at once." This "batching" of similar tasks makes drawing the entire on-screen interface (GUI/HUD), as well as items and mobs, much faster.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod optimizes immediate mode rendering (used for GUIs, text, entities, etc.) by implementing a custom buffer that batches draw calls. This reduces the number of state changes and communications with the GPU, significantly improving the rendering performance of most non-chunk elements. *This was chosen over `Flerovium` because its scope is broader, covering the UI in addition to entities.*</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/asyncparticles" target="_blank" rel="noopener noreferrer">AsyncParticles</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/particle-core" target="_blank" rel="noopener noreferrer">Particle Core</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is your world-class particle specialist team. **AsyncParticles** hires a completely separate artist whose only job is to draw particles (smoke, explosions, magic). This stops the main game's artist from getting bogged down and causing stutter. **Particle Core** acts as that particle-artist's smart assistant, telling them which particles are hidden behind walls (so don't bother drawing them) and giving you a control panel to turn down or disable annoying particle effects you don't want to see.</p>
+            <h4>Technical Explanation</h4>
+            <p>A key synergistic pair. **AsyncParticles** offloads particle ticking and rendering work to a separate thread, preventing their computational cost from causing lag spikes on the main render thread. **Particle Core** complements this by providing aggressive frustum culling (not rendering off-screen particles) and a powerful configuration system to reduce the total number of particles that need to be processed in the first place. They are fully compatible and work together for the best possible particle performance.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/entityculling" target="_blank" rel="noopener noreferrer">Entity Culling</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod is a smart spotter for your artist. It constantly checks what you can *actually* see. If a zombie is in the next room behind a solid wall, this mod tells the artist, "Don't bother drawing that zombie, the player can't see it anyway." This gives a huge FPS boost in dense areas like caves or complex bases by not rendering things that are hidden from view.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod implements asynchronous, multithreaded, CPU-based path-tracing for occlusion culling. It traces sightlines from the camera's current position to the bounding boxes of entities and block entities. If the sightline is obstructed by solid block geometry, the object's rendering is skipped for that frame, reducing draw calls. *This was chosen over GPU-based solutions like `Brute Force Rendering Culling` for its proven stability and focused effectiveness.*</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/out-of-sight" target="_blank" rel="noopener noreferrer">Out of Sight</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod gives you a simple slider to control how far away the game will even try to draw complex modded blocks and entities. It's a blunt but very effective tool to get a huge FPS boost by simply not rendering your friend's giant, laggy factory that's on the other side of the valley.</p>
+            <h4>Technical Explanation</h4>
+            <p>Out of Sight is a configurable distance-based culler. It prevents the rendering of `BlockEntity` and other designated `Entity` types beyond a set block radius from the player. This is a simpler culling method than `Entity Culling` but is effective for managing performance impact from distant, complex objects.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/fast-quit" target="_blank" rel="noopener noreferrer">Fast Quit</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/dynamic-fps" target="_blank" rel="noopener noreferrer">Dynamic FPS</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Two essential quality-of-life mods. **Fast Quit** gets you back to the main menu instantly while a cleanup crew saves your world in the background. **Dynamic FPS** tells the game to go to sleep when you click away from it (e.g., to check Discord), dropping to 1 FPS and muting the sound, which saves a massive amount of your PC's resources.</p>
+            <h4>Technical Explanation</h4>
+            <p>**Fast Quit** makes the world saving process asynchronous by detaching the client from the integrated server thread upon quitting. **Dynamic FPS** monitors the window focus state and drastically reduces the client's target framerate and master volume when the game is unfocused or idle, freeing up CPU and GPU resources for other applications.</p>
+        </div>
+    </details>
+</main>
+
+</body>
+</html>

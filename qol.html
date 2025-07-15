@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QOL Mods - Modpack Notes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-qol">
+
+<header class="navbar">
+  <a href="index.html" class="nav-logo">Modpack Notes</a>
+  <nav class="nav-links">
+    <ul>
+      <li class="nav-performance"><a href="index.html">Performance</a></li>
+      <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+      <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+      <li class="nav-qol"><a href="qol.html">QOL</a></li>
+      <li class="nav-insights"><a href="insights.html">Insights</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>QOL</h1>
+  <h2>Informational & UI/UX</h2>
+  <p class="section-intro">
+    The goal of these mods is to prevent you from ever needing to open a wiki. They provide a comprehensive, in-game knowledge base, showing you exactly how to craft items, where to find resources, and what things do, all with a clean and intuitive interface.
+  </p>
+
+  <details>
+    <summary><a href="https://modrinth.com/mod/emi" target="_blank" rel="noopener noreferrer">EMI (Enough Many Items)</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/tmrv" target="_blank" rel="noopener noreferrer">TooManyRecipeViewers</a></summary>
+    <div class="description-content">
+      <h4>Layman's Explanation</h4>
+      <p>This is the new heart of our in-game "wiki." EMI is a faster, more modern recipe viewer with a better UI and advanced features like a recipe tree to break down complex crafts. TMRV is the magic "universal adapter" that lets all our old JEI-dependent addons (like mob drop viewers) plug directly into EMI without needing JEI itself.</p>
+      <h4>Technical Explanation</h4>
+      <p>EMI is chosen over JEI for its superior performance and feature set. Its key advantage is asynchronous loading—it loads recipes after you enter the world, drastically reducing initial load times. TMRV is a high-performance compatibility layer that directly maps JEI API calls to EMI's native functions. This is far more efficient than the alternative (JEMI), which essentially runs a virtual instance of JEI in the background. This combination gives us the performance of EMI with the vast addon compatibility of the JEI ecosystem.</p>
+      <h4>The Plugins Below</h4>
+      <p>The following mods are addons that "plug in" to this core system, providing even more information.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/jei-integration" target="_blank" rel="noopener noreferrer">Advanced Tooltip API (JEI Integration)</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Adds highly technical information to item tooltips, like burn time, durability, hunger values, and internal registry names. Essential for pack developers and power users.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer" target="_blank" rel="noopener noreferrer">Just Enough Resources (JER)</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Answers the question "Where do I find this?". It shows what mobs drop, what's in dungeon chests, and where ores spawn in the world.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/just-enough-breeding" target="_blank" rel="noopener noreferrer">Just Enough Breeding (JEBr)</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Adds a new tab to the recipe viewer showing exactly what items are needed to breed any animal (vanilla or modded), removing the guesswork.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed" target="_blank" rel="noopener noreferrer">Just Enough Effect Descriptions (JEED)</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/moderately-enough-effect-descriptions-meed" target="_blank" rel="noopener noreferrer">MEED</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> The core mod (JEED) and its massive addon (MEED) work together to add descriptions for over 500 status effects, explaining what they do and what items cause them, all within the recipe viewer.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/jei-emi-archaeology-addon" target="_blank" rel="noopener noreferrer">JEI/EMI Archaeology Addon</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Displays the complete loot tables for archaeology, showing what items can be found in suspicious sand/gravel and what Sniffers can dig up.</p>
+    </div>
+  </details>
+
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/just-enough-calculation" target="_blank" rel="noopener noreferrer">Just Enough Calculation</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> A powerful in-game calculator for planning large, complex crafts from multi-step mods, telling you exactly how many raw resources you need to gather.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://modrinth.com/mod/cubes-without-borders" target="_blank" rel="noopener noreferrer">Cubes Without Borders</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Lets you play in a borderless fullscreen window, making it easy to tab out or use other monitors without the game minimizing.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/tschipcrafts-dynamic-lights-mod" target="_blank" rel="noopener noreferrer">Dynamic Lights</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> A simple but immersive tweak that makes held light sources (like torches) actually emit light in the world as you carry them.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/configured" target="_blank" rel="noopener noreferrer">Configured</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/catalogue" target="_blank" rel="noopener noreferrer">Catalogue</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> The essential "mod options" duo. Catalogue provides a clean, searchable mod list, and Configured allows you to edit a mod's configuration files directly in-game from that list.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/controllable" target="_blank" rel="noopener noreferrer">Controlling</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/raws-visual-keybinder" target="_blank" rel="noopener noreferrer">Keybind Visualizer</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Your keybind crisis management team. These mods let you search for keybinds by name and see them on a visual keyboard layout to easily find conflicts and available keys in a large modpack.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/mouse-tweaks" target="_blank" rel="noopener noreferrer">Mouse Tweaks</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Adds powerful new ways to drag and manage items in your inventory, making crafting and sorting significantly faster and more intuitive.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions" target="_blank" rel="noopener noreferrer">Enchantment Description</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Adds clear, concise descriptions to enchanted books and items, explaining what each enchantment actually does without needing a wiki.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://modrinth.com/mod/chat-heads" target="_blank" rel="noopener noreferrer">ChatHeads</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> A simple visual tweak that adds player heads next to chat messages, making it easier to see who is speaking in a busy server.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/cosmetic-armor-reworked" target="_blank" rel="noopener noreferrer">Cosmetic Armour Reworked</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Gives you dedicated cosmetic armor slots, so you can have the stats of one armor set and the appearance of another. Fashion and function, combined.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/overflowing-healthbars" target="_blank" rel="noopener noreferrer">Overflowing Healthbars</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Provides a clean and compact display for high health, armor, and toughness values, using stacked icons and numbers instead of a confusing mess of different colored hearts.</p>
+    </div>
+  </details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/polymorph" target="_blank" rel="noopener noreferrer">Polymorph</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Solves recipe conflicts by adding a button to cycle between all possible outputs when multiple mods use the same ingredients for a recipe.</p>
+    </div>
+  </details>
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/better-advancements" target="_blank" rel="noopener noreferrer">Better Advancements</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Overhauls the cramped, tiny vanilla advancements screen into a full-screen, readable, and more visually useful interface. This is essential for navigating the hundreds of advancements in a large modpack.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/clickable-advancements" target="_blank" rel="noopener noreferrer">Clickable Advancements</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Makes the advancement pop-up messages in chat clickable, instantly taking you to that specific advancement in the UI. This is crucial for discovering what mod you just made progress in and exploring its content.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/toast-control" target="_blank" rel="noopener noreferrer">Toast Control</a></summary>
+    <div class="description-content">
+      <p><strong>Purpose:</strong> Gives you full control over the pop-up notifications ("toasts") for things like recipe unlocks and advancements, letting you disable the annoying ones and keep your screen clean.</p>
+    </div>
+  </details>
+
+  <h2>Gameplay</h2>
+  <p class="section-intro">
+    These mods form the core of the "Chen's Better Minecraft" experience. They don't add complex new tech systems, but instead build upon the vanilla foundation with hundreds of high-quality features, blocks, and quality-of-life improvements that make the game feel more complete, alive, and fun to play.
+  </p>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/quark" target="_blank" rel="noopener noreferrer">Quark & Quark Oddities</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>This duo forms the ultimate "vanilla-plus" foundation. Quark enhances the base game with features that feel like they should have been there all along. Quark Oddities, its companion, adds more unique and whimsical content like backpacks, pipes, and the beloved Tiny Potato. Together, they create a richer and more polished Minecraft experience without ever feeling out of place.</p>
+
+      <details>
+        <summary>Quark Automation & Building Features</summary>
+        <ul>
+          <li><strong>Pistons Move Tile Entities:</strong> Pistons can now push chests, furnaces, and other blocks with inventories.</li>
+          <li><strong>New Wood Types & Variants:</strong> Adds full block sets for Azalea, Ashen, and Trumpet wood, plus wood-specific variants for Chests, Bookshelves, and Ladders.</li>
+          <li><strong>New Stone & Brick Variants:</strong> Adds brick, chiseled, and pillar variants for all vanilla stone types and introduces new ones like Limestone and Jasper.</li>
+          <li><strong>Vertical Slabs:</strong> Adds vertical slab variants for all applicable blocks.</li>
+          <li><strong>And dozens more:</strong> Including new redstone components, Hedges, Ropes, Glass Item Frames, and decorative palettes.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Quark Quality of Life & UI Tweaks</summary>
+        <ul>
+          <li><strong>Automatic Tool Restock:</strong> Automatically replaces a broken tool with another from your inventory.</li>
+          <li><strong>Inventory Sorting:</strong> A one-click button to sort your inventory and chests.</li>
+          <li><strong>Improved Tooltips:</strong> Shows food stats, shulker box contents, and more directly in the tooltip.</li>
+          <li><strong>Double Door Opening:</strong> Double doors open and close together.</li>
+          <li><strong>And more:</strong> Including Auto Walk, Item Sharing, and better ladder mechanics.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Quark World, Mobs, and Items</summary>
+        <ul>
+          <li><strong>New Mobs:</strong> Crabs, Foxhounds, Wraiths, Stonelings, and more add life and challenge to the world.</li>
+          <li><strong>World Gen:</strong> Adds new underground biomes (Glimmering Weald), massive stone clusters, and structures like Nether Obsidian Spikes.</li>
+          <li><strong>New Tools & Items:</strong> The Pickarang (a boomerang pickaxe), Seed Pouch, Slime in a Bucket, and more.</li>
+          <li><strong>Ancient Tomes:</strong> Rare loot that can upgrade enchantments beyond their normal maximum level (e.g., Fortune IV).</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Quark Oddities Features</summary>
+        <ul>
+          <li><strong>Backpack:</strong> A craftable backpack for extra inventory space that is worn in the chestplate slot.</li>
+          <li><strong>Pipes:</strong> A simple item transport system made from copper.</li>
+          <li><strong>Storage Crate:</strong> An alternative storage block that holds a large variety of items, perfect for unstackables.</li>
+          <li><strong>Totem of Holding:</strong> Spawns where you die to hold your items safely until you return.</li>
+          <li><strong>Tiny Potato:</strong> A tiny potato that believes in you.</li>
+        </ul>
+      </details>
+    </div>
+  </details>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/supplementaries" target="_blank" rel="noopener noreferrer">Supplementaries</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/amendments" target="_blank" rel="noopener noreferrer">Amendments</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>These two mods by the same author are the perfect companions to Quark. They add a wealth of highly detailed, aesthetically pleasing, and functional blocks that fill the gaps in vanilla building, decoration, and redstone. Features like wall lanterns with physics, working cannons, and lockable doors add incredible depth and character to builds, making the world feel more dynamic and interactive.</p>
+
+      <details>
+        <summary>Amendments (Vanilla Block Upgrades)</summary>
+        <ul>
+          <li><strong>Wall Lanterns:</strong> Lanterns can now be placed on walls and swing with physics.</li>
+          <li><strong>Functional Cauldrons:</strong> Can store any liquid, mix potions, and boil items.</li>
+          <li><strong>Better Lecterns:</strong> Adds a GUI to change font and color for books.</li>
+          <li><strong>Better Jukeboxes:</strong> Visually displays the spinning disc that is currently playing.</li>
+          <li><strong>And more:</strong> Including carpets on stairs, placeable items on lily pads, and colored potions in brewing stands.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>New Redstone Blocks</summary>
+        <ul>
+          <li><strong>Turn Table & Pulley:</strong> A system for rotating blocks and raising/lowering ropes and chains.</li>
+          <li><strong>Faucet:</strong> A powerful block for moving liquids and items between containers and the world.</li>
+          <li><strong>Bellows:</strong> Speeds up furnaces, stokes fires, and pushes entities with air.</li>
+          <li><strong>And more:</strong> Including Cranks, Cog Blocks, Spring Launchers, and Relayers.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>New Functional & Decorative Blocks</summary>
+        <ul>
+          <li><strong>Safe & Lockable Doors:</strong> A fire-resistant chest and Netherite doors that can be locked with a Key.</li>
+          <li><strong>Ropes:</strong> Climbable, dynamic ropes that can be used to raise and lower blocks with a pulley system.</li>
+          <li><strong>Cannon:</strong> A functional cannon that can fire any item, including special Cannonballs that break blocks.</li>
+          <li><strong>And more:</strong> Including Doormats, Pedestals, Planters, Notice Boards, Ash, Soap, and Flags.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>New Tools, Foods, and Items</summary>
+        <ul>
+          <li><strong>Slingshot:</strong> A tool that can shoot blocks, placing them where they land.</li>
+          <li><strong>Quiver:</strong> Stores multiple types of arrows and allows for quick swapping.</li>
+          <li><strong>Wrench:</strong> A tool for rotating almost any block, including beds and signs.</li>
+          <li><strong>Key:</strong> Used to lock Safes and Netherite doors with a unique password.</li>
+          <li><strong>Bomb:</strong> A throwable explosive that damages mobs but does not break blocks.</li>
+          </ul>
+      </details>
+    </div>
+  </details>
+
+  <h2>Auditory</h2>
+  <p class="section-intro">
+    This suite of mods is designed to make the world of "Chen's Better Minecraft" sound alive, immersive, and social. From realistic echoes in caves to in-game proximity chat and long-range radios, these mods remove the need for external programs and add new layers of gameplay through sound.
+  </p>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat" target="_blank" rel="noopener noreferrer">Simple Voice Chat & Addons</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>This is the core of our communication system. Simple Voice Chat adds immersive, high-quality proximity voice chat directly into the game, removing the need for external apps like Discord. The following addons build upon this foundation to create an unparalleled auditory experience.</p>
+
+      <details>
+        <summary>Sound Physics Remastered</summary>
+        <p><strong>Purpose:</strong> Makes the world sound real. This addon adds realistic reverb and sound muffling, so voices and game sounds will echo in large caves and be dampened through walls. It makes every environment feel distinct and alive.</p>
+      </details>
+
+      <details>
+        <summary>Vibrative Voice</summary>
+        <p><strong>Purpose:</strong> Adds a new layer of challenge and interaction. With this addon, your voice now creates vibrations, meaning you can trigger Sculk Sensors and alert the Warden just by speaking. You'll have to think before you talk in the Deep Dark.</p>
+      </details>
+
+      <details>
+        <summary>Simple Radio</summary>
+        <p><strong>Purpose:</strong> Provides a diegetic, in-game solution for long-range communication. Instead of global chat, you can craft and use radios to talk to friends across the map, adding a fun layer of progression to team-based play.</p>
+      </details>
+    </div>
+  </details>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/presence-footsteps-forge" target="_blank" rel="noopener noreferrer">Presence Footsteps</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>This is a pure immersion mod that adds a massive variety of high-quality footstep sounds. You'll hear distinct sounds when walking on different types of stone, wood, sand, and more. It's a subtle but powerful change that makes moving through the world feel more tactile and believable.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/music-player" target="_blank" rel="noopener noreferrer">Music Player</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>For player convenience and personalization. This mod adds a powerful in-game music player that can play local files or stream directly from sources like YouTube and SoundCloud. It allows you to create your own custom soundtrack for your adventure without ever having to tab out of the game.</p>
+    </div>
+  </details>
+  <details>
+    <summary><a href="https://www.curseforge.com/minecraft/mc-mods/extreme-sound-muffler" target="_blank" rel="noopener noreferrer">Extreme Sound Muffler</a></summary>
+    <div class="description-content">
+      <h4>Why We Added It</h4>
+      <p>This is a crucial accessibility feature. For players with misophonia, autism, or any other sound sensitivity, certain in-game sounds can be overwhelming. While some mods add blocks to muffle sound, this provides a universal, client-side GUI that gives every player direct control over their own auditory experience without needing to build anything or install resource packs.</p>
+      <h4>Layman's Explanation</h4>
+      <p>This mod adds a powerful menu (opened with a keybind) that lists all sounds currently playing around you. You can selectively mute or lower the volume of any sound in the game, from a loud machine to an annoying mob. It also allows you to create "Anchors" to only muffle sounds in a specific area, like a noisy farm, without affecting the rest of your world.</p>
+    </div>
+  </details>
+  <h2>Animations and Textures</h2>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/effectual" target="_blank" rel="noopener noreferrer">Effectual</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/effective" target="_blank" rel="noopener noreferrer">Effective</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/simple-weather" target="_blank" rel="noopener noreferrer">Simple Weather</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/hold-my-items" target="_blank" rel="noopener noreferrer">Hold my items</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric" target="_blank" rel="noopener noreferrer">Entity Textures Mods</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/ctm" target="_blank" rel="noopener noreferrer">ConnectedTexturesMod</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/particle-rain" target="_blank" rel="noopener noreferrer">Particle Rain</a></summary><p class="placeholder"><em>Add a description for this mod here.</em></p></details>
+  <details><summary><a href="https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric" target="_blank" rel="noopener noreferrer">Entity Texture Features</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/entity-model-features" target="_blank" rel="noopener noreferrer">Entity Model Features</a></summary><p class="placeholder"><em>Add a description for these mods here.</em></p></details>
+</main>
+
+</body>
+</html>

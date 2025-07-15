@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bugfixing & Admin - Modpack Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-bugfixing">
+
+<header class="navbar">
+    <a href="index.html" class="nav-logo">Modpack Notes</a>
+    <nav class="nav-links">
+        <ul>
+            <li class="nav-performance"><a href="index.html">Performance</a></li>
+            <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
+            <li class="nav-enhancements"><a href="enhancements.html">Enhancements</a></li>
+            <li class="nav-qol"><a href="qol.html">QOL</a></li>
+            <li class="nav-insights"><a href="insights.html">Insights</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Bugfixing, Debuggers, and Admin Tools</h1>
+    <h2>Bugfixes</h2>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/attributefix" target="_blank" rel="noopener noreferrer">AttributeFix</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Fixes a simple but frustrating bug where modded armor and weapons can't have stats (like armor points or attack damage) higher than a certain vanilla limit. This mod removes that artificial cap, allowing powerful modded items to work as their creators intended.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod patches the hardcoded maximum caps on several vanilla entity attributes, such as `generic.max_health`, `generic.attack_damage`, and `generic.armor`. This allows these values to exceed the default vanilla limits (e.g., 2048 for health), which is essential for many content and progression mods to function correctly.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/im-fast" target="_blank" rel="noopener noreferrer">I'm Fast</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This is a server-side mod that stops the server from complaining and rubber-banding you when you move extremely fast. It gets rid of the "Moved too quickly!" error, which is essential in modpacks with powerful movement options.</p>
+            <h4>Technical Explanation</h4>
+            <p>A modern, server-side-only mod that uses mixins to remove the vanilla player speed and position validation checks. This allows players to move at speeds far beyond the default limits without being kicked or teleported back by the server.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/console-filter" target="_blank" rel="noopener noreferrer">ConsoleFilter</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/log-begone" target="_blank" rel="noopener noreferrer">Log Begone</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>These mods are powerful spam filters for your server console or game log. You can give them a list of annoying, repetitive, but harmless messages that some mods print out (like "missing texture" or "moved too quickly"). They will hide those specific messages, making it much easier to spot actual, important errors when they happen.</p>
+            <h4>Technical Explanation</h4>
+            <p>These are configurable log filters. They allow administrators to define rules, often using regular expressions, to suppress specific log messages from being printed to the console or written to the `latest.log` file. This is crucial for server administration to reduce log noise and isolate meaningful errors and warnings from spam.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/no-chat-reports" target="_blank" rel="noopener noreferrer">No Chat Reports</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod removes Microsoft's controversial chat reporting system, restoring chat privacy on servers that have the mod installed. It prevents your messages from being cryptographically signed and sent to Mojang for moderation.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod disables the client-side cryptographic signing of chat messages and strips signature data from messages received on the server. This effectively neutralizes the Player Chat Reporting system introduced in Minecraft 1.19.1, making chat messages unverifiable by Mojang's services and therefore unreportable.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/yeetus-experimentus" target="_blank" rel="noopener noreferrer">Yeetus Experimentus</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>A very simple but essential mod. It gets rid of the annoying "Experimental Features" warning screen that pops up every time you load a world with certain mods. This warning screen is known to cause issues, like forcing the game to reload all its resources twice, which significantly slows down world loading.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod patches the game logic that triggers the "Experimental Settings" confirmation screen. By suppressing this screen, it prevents the double resource-reload that normally occurs, which can significantly improve world loading times in modpacks that use experimental vanilla features (like custom worldgen).</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/almost-unified" target="_blank" rel="noopener noreferrer">AlmostUnified</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/almost-unify-everything" target="_blank" rel="noopener noreferrer">AlmostUnifyEverything</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Fixes the "5 different types of copper ore" problem in modpacks. This tool automatically chooses one "main" version of each metal (like Copper, Tin, Silver) from all your mods. It then rewrites all recipes to use that one version and hides the duplicates from JEI, cleaning up your inventory and making crafting much less confusing.</p>
+            <h4>Technical Explanation</h4>
+            <p>A data-driven unification tool. `AlmostUnified` scans the game for duplicate items based on tags (e.g., `forge:ores/copper`) and runtime-generates recipes to convert between them, while also modifying existing recipes to use a single "preferred" item. `AlmostUnifyEverything` extends this by hiding non-preferred duplicates from recipe viewers and modifying loot tables to ensure only the unified version drops from chests and mobs.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/better-compatibility-checker" target="_blank" rel="noopener noreferrer">Better Compatibility Checker</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Fixes the often-inaccurate server compatibility check in the multiplayer screen. Instead of just comparing mod lists (which can be wrong), this mod allows a modpack creator to set a specific version ID. It will then show a simple green checkmark if the client and server versions match, or a red X if they don't, providing a much more reliable way to see if you can join a server.</p>
+            <h4>Technical Explanation</h4>
+            <p>This mod replaces the default Forge server compatibility check. Instead of comparing mod lists, it checks for a custom `modpack_version` string defined in its configuration file. If the version string on the client matches the one on the server, it reports a compatible connection, providing a more robust check for curated modpacks where mod lists should be identical.</p>
+        </div>
+    </details>
+
+    <h2>Admin Tools and Debugging</h2>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/kubejs" target="_blank" rel="noopener noreferrer">KubeJS</a>, <a href="https://www.curseforge.com/minecraft/mc-mods/lootjs" target="_blank" rel="noopener noreferrer">LootJS</a>, & <a href="https://www.curseforge.com/minecraft/mc-mods/morejs" target="_blank" rel="noopener noreferrer">MoreJS</a></summary>
+        <div class="description-content">
+            <h4>The "Workshop" Analogy</h4>
+            <p>This trio is the ultimate toolkit for customizing a modpack. Think of it like setting up a professional workshop:</p>
+            <p>
+                <strong>KubeJS</strong> is the workshop itself. It provides the space, the power grid, and all the essential, general-purpose power tools (saws, drills, sanders). You can build almost anything with it, but for highly specialized jobs, you might want a better tool.
+            </p>
+            <p>
+                <strong>LootJS</strong> is a dedicated, high-end "Loot Table Workbench" you install in the workshop. Its only job is to modify chest loot, mob drops, and block drops. It's far more efficient and easier to use for this specific task than trying to build a custom loot system from scratch with KubeJS's general tools.
+            </p>
+            <p>
+                <strong>MoreJS</strong> is like buying a massive set of specialized attachments and extensions for your existing tools. It adds new "drill bits" for interacting with specific mods and "extension cords" for creating more complex event triggers, expanding the overall capability of your workshop.
+            </p>
+            <h4>Technical Breakdown & Primary Purpose</h4>
+            <p>
+                <strong>KubeJS (The Engine):</strong> Its primary purpose is to provide the core framework for modifying the game with JavaScript. It's the foundation upon which everything else is built. You use it for adding and removing recipes, creating new items and blocks, scripting events, and altering block properties.
+            </p>
+            <p>
+                <strong>LootJS (The Loot Specialist):</strong> Its primary purpose is to simplify the modification of loot tables. Instead of dealing with complex JSON files or generic KubeJS events, LootJS provides a clean, chainable JavaScript API designed specifically for adding, removing, and modifying loot in any loot table in the game.
+            </p>
+            <p>
+                <strong>MoreJS (The Extender):</strong> Its primary purpose is to add new, powerful integrations and event handlers that the core KubeJS mod doesn't include by default. It acts as an official addon to provide more niche, but often critical, tools for deep integration with other popular mods.
+            </p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/worldstripper" target="_blank" rel="noopener noreferrer">Worldstripper</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>A debugging tool that lets you temporarily make certain blocks invisible. It's incredibly useful for finding underground caves, dungeons, or player bases on a server by "stripping away" all the stone and dirt to see what's hidden underneath.</p>
+            <h4>Technical Explanation</h4>
+            <p>This is a client-side utility that provides commands to selectively stop rendering certain block types based on their block ID. It doesn't actually remove the blocks from the world; it just prevents them from being drawn on your screen, effectively creating an X-ray view for administrative or testing purposes.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/spark" target="_blank" rel="noopener noreferrer">Spark</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/observable" target="_blank" rel="noopener noreferrer">Observable</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>These are essential diagnostic tools, not performance mods. They're like an MRI machine and a heart rate monitor for your game. When your game is lagging, you use them to get a detailed report that tells you *exactly* what mod or what part of the game is causing the problem, so you know where to focus your efforts.</p>
+            <h4>Technical Explanation</h4>
+            <p>These are performance profilers. They hook into the game's main loop (the "tick") and measure the CPU and RAM usage of every single process. This allows server administrators and players to generate detailed, shareable reports that pinpoint sources of lag, from specific entities and block entities to poorly optimized mod code.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://www.curseforge.com/minecraft/mc-mods/modern-startup-qol-reforked" target="_blank" rel="noopener noreferrer">Modern Startup QoL reforked</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>This mod changes the color of the startup time text on the main menu to give you a quick idea of your modpack's loading "health." The original mod turns the text red if loading takes more than a minute, which is useless for a huge modpack. This reforked version sets realistic goals: under 5 minutes is green, over 5 is yellow, and over 10 is red.</p>
+            <h4>Technical Explanation</h4>
+            <p>A simple fork of 'Modern Startup QOL' that only adjusts the configuration values for the startup timer's color-coding. It changes the thresholds from the vanilla-oriented defaults to values appropriate for a heavily modded environment, providing a more accurate at-a-glance diagnostic of loading performance without any other functional changes.</p>
+        </div>
+    </details>
+    <details>
+        <summary><a href="https://github.com/AlmostReliable/attributetooltipfix" target="_blank" rel="noopener noreferrer">Attribute Tooltip Fix</a></summary>
+        <div class="description-content">
+            <h4>Layman's Explanation</h4>
+            <p>Fixes the item description (tooltip) when custom stats like Attack Damage are added via commands or scripts, so the tooltip shows the correct, modified numbers instead of the vanilla ones.</p>
+            <h4>Usage Guide</h4>
+            <p>To get the correct tooltip, you must use the correct UUID for the attribute.</p>
+            <p>
+                <strong>For Commands / NBT:</strong><br>
+                Attack Damage: <code>[I;-885041709,1683771192,-1533567981,-1556236849]</code><br>
+                Attack Speed: <code>[I;-98353636,1098926181,-1340359474,-1752847197]</code>
+            </p>
+            <p>
+                <strong>For KubeJS / String UUIDs:</strong><br>
+                Attack Damage: <code>CB3F55D3-645C-4F38-A497-9C13A33DB5CF</code><br>
+                Attack Speed: <code>FA233E1C-4180-4865-B01B-BCCE9785ACA3</code>
+            </p>
+            <h4>Visual Difference</h4>
+            <img src="https://i.imgur.com/FsfJnwN.gif" alt="GIF showing the difference between a broken and fixed tooltip" style="max-width: 100%; border-radius: 8px;">
+        </div>
+    </details>
+</main>
+
+</body>
+</html>

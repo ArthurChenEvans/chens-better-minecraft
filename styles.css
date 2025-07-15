@@ -1,0 +1,203 @@
+/* --- Base Setup & Variables --- */
+:root {
+    --text-color: #1a1a1a;
+    --text-light: #555;
+    --bg-color-start: #d4e2fa;
+    --bg-color-end: #c3e8e8;
+    --accent-color: #3b82f6;
+    --accent-hover-color: #2563eb;
+    --card-bg-color: rgba(255, 255, 255, 0.65);
+    --card-border-color: rgba(255, 255, 255, 0.4);
+    --divider-color: rgba(0, 0, 0, 0.1);
+    --nav-height: 60px;
+    --nav-width: 240px;
+}
+
+html {
+    scrollbar-gutter: auto;
+}
+
+body {
+    margin: 0;
+    /* Add padding to the top to prevent content from hiding under the fixed navbar */
+    padding: 2rem 3rem 2rem calc(var(--nav-width) + 3rem);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(135deg, var(--bg-color-start), var(--bg-color-end));
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* --- Vertical Navigation Bar --- */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--nav-width);
+    height: 100vh;
+    background: var(--card-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid var(--card-border-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.nav-links {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    margin: 0.25rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+/* New Active Page Link Styling */
+#page-performance .nav-performance a,
+#page-bugfixing .nav-bugfixing a,
+#page-enhancements .nav-enhancements a,
+#page-qol .nav-qol a,
+#page-insights .nav-insights a {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* --- Main Content "Frosted Glass" Container --- */
+main {
+    background: var(--card-bg-color);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 800px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Headings --- */
+h1, h2 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--divider-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+h1:first-child { margin-top: 0; }
+h2 {
+    font-size: 1.25rem;
+    border-bottom-width: 1px;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Details & Summary Elements --- */
+details {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+details[open] { border: 1px solid var(--divider-color); }
+
+summary {
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    list-style: none; /* remove default arrow */
+    position: relative;
+    border-radius: 8px; /* For focus outline */
+}
+summary:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+    content: '›';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out;
+}
+details[open] > summary::after { transform: translateY(-50%) rotate(-90deg); }
+
+/* --- Links inside Summary --- */
+summary a {
+    color: inherit;
+    text-decoration: none;
+    border-radius: 4px;
+}
+summary a:hover, summary a:focus-visible {
+    color: var(--accent-hover-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    outline: none; /* The parent summary provides a better focus outline */
+}
+
+/* --- Content Inside Details --- */
+.description-content, .placeholder {
+    padding: 0.75rem 1rem 1rem 1rem;
+    margin: 0;
+    border-top: 1px solid var(--divider-color);
+}
+.description-content h4 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+.description-content h4:first-child { margin-top: 0; }
+.description-content p {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+.description-content p:last-child { margin-bottom: 0; }
+.description-content p + h4 { margin-top: 1.25rem; }
+.placeholder, .placeholder-text {
+    color: var(--text-light);
+    font-style: italic;
+    padding-top: 1rem;
+}
+strong {
+    font-weight: 700;
+    color: #000;
+}
