@@ -6,21 +6,20 @@
     --bg-color-end: #c3e8e8;
     --accent-color: #3b82f6;
     --accent-hover-color: #2563eb;
-    --card-bg-color: rgba(255, 255, 255, 0.65);
+    --card-bg-color: rgba(255, 255, 255, 0.7);
     --card-border-color: rgba(255, 255, 255, 0.4);
     --divider-color: rgba(0, 0, 0, 0.1);
     --nav-height: 60px;
-    --nav-width: 240px;
 }
 
-html {
-    scrollbar-gutter: auto;
+/* Universal reset */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    /* Add padding to the top to prevent content from hiding under the fixed navbar */
-    padding: 2rem 3rem 2rem calc(var(--nav-width) + 3rem);
+    padding: 1.5rem 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-color);
     background: linear-gradient(135deg, var(--bg-color-start), var(--bg-color-end));
@@ -28,73 +27,122 @@ body {
     min-height: 100vh;
 }
 
-/* --- Vertical Navigation Bar --- */
-.navbar {
+/* --- NEW, ROBUST NAVIGATION SYSTEM --- */
+
+/* Mobile Footer Navigation (Default) */
+.desktop-header {
+    display: none; /* Hidden on mobile */
+}
+
+.mobile-footer {
     position: fixed;
+    bottom: 0;
     left: 0;
-    top: 0;
-    width: var(--nav-width);
-    height: 100vh;
+    width: 100%;
+    height: var(--nav-height);
     background: var(--card-bg-color);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-right: 1px solid var(--card-border-color);
+    border-top: 1px solid var(--card-border-color);
     z-index: 1000;
     display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Make links fill height */
+}
+
+.mobile-footer a {
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    padding: 1.5rem 0;
-}
-
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    padding: 1rem 1.5rem;
-    text-align: center;
-}
-
-.nav-links {
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.nav-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links a {
-    display: block;
-    padding: 0.8rem 1.5rem;
-    margin: 0.25rem 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
     color: var(--text-light);
-    text-decoration: none;
-    transition: all 0.2s ease;
+    font-size: 0.7rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    padding: 4px 0;
+    gap: 2px;
 }
 
-.nav-links a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: var(--text-color);
+.mobile-footer a:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
-/* New Active Page Link Styling */
-#page-performance .nav-performance a,
-#page-bugfixing .nav-bugfixing a,
-#page-enhancements .nav-enhancements a,
-#page-qol .nav-qol a,
-#page-insights .nav-insights a,
-#page-cosmetics .nav-cosmetics a {
-    background-color: var(--accent-color);
-    color: white;
+/* Active State Styling */
+.mobile-footer a.active {
+    color: var(--accent-color);
     font-weight: 600;
 }
 
-/* --- Main Content "Frosted Glass" Container --- */
+
+/* Add active class to the current page's link */
+#page-performance .nav-performance,
+#page-bugfixing .nav-bugfixing,
+#page-qol .nav-qol,
+#page-cosmetics .nav-cosmetics,
+#page-overhauls .nav-overhauls,
+#page-insights .nav-insights {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+
+/* Desktop Navigation (for screens > 899px) */
+@media (min-width: 900px) {
+    .mobile-footer {
+        display: none; /* Hide mobile footer on desktop */
+    }
+
+    .desktop-header {
+        display: flex; /* Show desktop header */
+        background: var(--card-bg-color);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--card-border-color);
+        padding: 0 2rem;
+        height: var(--nav-height);
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    .desktop-nav-links ul {
+        display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5rem;
+    }
+
+    .desktop-nav-links a {
+        font-size: 1rem; font-weight: 500; color: var(--text-color); text-decoration: none; transition: color 0.2s ease;
+    }
+
+    .desktop-nav-links a:hover {
+        color: var(--accent-hover-color);
+    }
+
+    /* Active Link Styling for Desktop */
+    #page-performance .nav-performance a,
+    #page-bugfixing .nav-bugfixing a,
+    #page-qol .nav-qol a,
+    #page-cosmetics .nav-cosmetics a,
+    #page-overhauls .nav-overhauls a,
+    #page-insights .nav-insights a {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+    }
+}
+
+/* Main Content & Body Padding Adjustments */
+body {
+    padding-bottom: calc(var(--nav-height) + 1.5rem); /* Space for mobile footer */
+}
+@media (min-width: 900px) {
+    body {
+        padding-top: 0; /* Desktop header is sticky, so no top padding needed */
+        padding-bottom: 1.5rem;
+    }
+}
 main {
     background: var(--card-bg-color);
     -webkit-backdrop-filter: blur(20px);
@@ -102,13 +150,18 @@ main {
     border: 1px solid var(--card-border-color);
     border-radius: 16px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    max-width: 800px;
+    padding: 1.5rem;
     max-width: 1100px;
     margin: 0 auto;
 }
+@media (min-width: 900px) {
+    main {
+        padding: 2rem;
+        margin-top: 1.5rem; /* Space between sticky header and content */
+    }
+}
 
-/* --- Headings --- */
+/* --- All other styles remain the same --- */
 h1, h2 {
     color: var(--text-color);
     border-bottom: 2px solid var(--divider-color);
@@ -117,14 +170,7 @@ h1, h2 {
     margin-bottom: 1.5rem;
 }
 h1:first-child { margin-top: 0; }
-h2 {
-    font-size: 1.25rem;
-    border-bottom-width: 1px;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-/* --- Details & Summary Elements --- */
+h2 { font-size: 1.25rem; border-bottom-width: 1px; margin-top: 2.5rem; margin-bottom: 1rem; }
 details {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
@@ -133,19 +179,15 @@ details {
     transition: all 0.2s ease-in-out;
 }
 details[open] { border: 1px solid var(--divider-color); }
-
 summary {
     font-weight: 500;
     padding: 0.75rem 1rem;
     cursor: pointer;
-    list-style: none; /* remove default arrow */
+    list-style: none;
     position: relative;
-    border-radius: 8px; /* For focus outline */
+    border-radius: 8px;
 }
-summary:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
+summary:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
 summary::-webkit-details-marker { display: none; }
 summary::after {
     content: '›';
@@ -158,200 +200,57 @@ summary::after {
     transition: transform 0.2s ease-in-out;
 }
 details[open] > summary::after { transform: translateY(-50%) rotate(-90deg); }
-
-/* --- Links inside Summary --- */
 summary a {
-    color: inherit;
-    text-decoration: none;
-    border-radius: 4px;
+    color: inherit; text-decoration: none; border-radius: 4px;
 }
 summary a:hover, summary a:focus-visible {
-    color: var(--accent-hover-color);
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    outline: none; /* The parent summary provides a better focus outline */
+    color: var(--accent-hover-color); text-decoration: underline; text-decoration-thickness: 1.5px; outline: none;
 }
-
-/* --- Content Inside Details --- */
 .description-content, .placeholder {
-    padding: 0.75rem 1rem 1rem 1rem;
-    margin: 0;
-    border-top: 1px solid var(--divider-color);
+    padding: 0.75rem 1rem 1rem 1rem; margin: 0; border-top: 1px solid var(--divider-color);
 }
 .description-content h4 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: var(--text-color);
-    font-weight: 600;
+    margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-color); font-weight: 600;
 }
 .description-content h4:first-child { margin-top: 0; }
 .description-content p {
-    margin: 0 0 0.5rem 0;
-    line-height: 1.6;
-    color: var(--text-light);
+    margin: 0 0 0.5rem 0; line-height: 1.6; color: var(--text-light);
 }
 .description-content p:last-child { margin-bottom: 0; }
 .description-content p + h4 { margin-top: 1.25rem; }
 .placeholder, .placeholder-text {
-    color: var(--text-light);
-    font-style: italic;
-    padding-top: 1rem;
+    color: var(--text-light); font-style: italic; padding-top: 1rem;
 }
-strong {
-    font-weight: 700;
-    color: #000;
-}
-
-/* --- NEW: Dropdown Navigation Styling --- */
-.dropdown {
-    position: relative; /* This is crucial for positioning the dropdown content */
-}
-
-.dropdown-content {
-    display: none; /* Hide the dropdown by default */
-    position: absolute;
-    top: 100%; /* Position it right below the parent link */
-    left: 0;
-    background-color: var(--card-bg-color);
-    min-width: 220px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    border-radius: 0 0 8px 8px; /* Rounded corners on the bottom */
-    border: 1px solid var(--card-border-color);
-    border-top: none;
-    z-index: 1;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    list-style: none; /* remove bullet points */
-    padding: 0.5rem 0;
-    margin: 0;
-}
-
-.dropdown-content a {
-    color: var(--text-color);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block; /* Make the whole area clickable */
-    text-align: left;
-    font-weight: 500;
-}
-
-.dropdown-content a:hover {
-    background-color: rgba(0,0,0,0.05);
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-/* --- NEW: Active Page Styling for Overhauls Link --- */
-#page-overhauls-blog .nav-overhauls > a {
-    color: var(--accent-color);
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
-/* --- NEW: Styling for the Blog Hub Page --- */
+strong { font-weight: 700; color: #000; }
+img { max-width: 100%; height: auto; border-radius: 8px; }
 .section-intro {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    border-bottom: 1px solid var(--divider-color);
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem; color: var(--text-light); border-bottom: 1px solid var(--divider-color); padding-bottom: 1rem; margin-bottom: 2rem;
 }
-
 .article-preview {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.3); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid transparent;
 }
-
-.article-preview h2 {
-    margin-top: 0;
-    border: none;
-    padding: 0;
-}
-
-.article-preview p {
-    margin: 0.5rem 0 1rem 0;
-    color: var(--text-light);
-}
-
-.read-more {
-    font-weight: 600;
-    color: var(--accent-color);
-    text-decoration: none;
-}
-.read-more:hover {
-    text-decoration: underline;
-    color: var(--accent-hover-color);
-}
-
-/* --- NEW: Article Page Styling --- */
-.article-page main {
-    padding: 2.5rem 3rem; /* More padding for a premium feel */
-}
-
+.article-preview h2 { margin-top: 0; border: none; padding: 0; }
+.article-preview p { margin: 0.5rem 0 1rem 0; color: var(--text-light); }
+.read-more { font-weight: 600; color: var(--accent-color); text-decoration: none; }
+.read-more:hover { text-decoration: underline; color: var(--accent-hover-color); }
+.article-page main { padding: 1.5rem; }
+@media (min-width: 900px) { .article-page main { padding: 2.5rem 3rem; } }
 .article-header {
-    text-align: center;
-    border-bottom: 2px solid var(--divider-color);
-    padding-bottom: 1.5rem;
-    margin-bottom: 2.5rem;
+    text-align: center; border-bottom: 2px solid var(--divider-color); padding-bottom: 1.5rem; margin-bottom: 2.5rem;
 }
-
 .article-header h1 {
-    border: none;
-    padding: 0;
-    margin: 0 0 0.5rem 0;
-    font-size: 2.5rem;
+    border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 2rem;
 }
-
+@media (min-width: 900px) { .article-header h1 { font-size: 2.5rem; } }
 .article-header .byline {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    font-style: italic;
-    max-width: 60ch; /* Limit width for readability */
-    margin: 0 auto;
+    font-size: 1.1rem; color: var(--text-light); font-style: italic; max-width: 60ch; margin: 0 auto;
 }
-
-.article-page article section {
-    margin-bottom: 2.5rem;
-}
-
-.article-page article h2 {
-    font-size: 1.75rem;
-    border: none;
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.article-page article p,
-.article-page article li {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-light);
-}
-
-.article-page article ul,
-.article-page article ol {
-    padding-left: 1.5rem;
-}
-
+.article-page article section { margin-bottom: 2.5rem; }
+.article-page article h2 { font-size: 1.5rem; border: none; padding: 0; margin-bottom: 1rem; }
+@media (min-width: 900px) { .article-page article h2 { font-size: 1.75rem; } }
+.article-page article p, .article-page article li { font-size: 1.1rem; line-height: 1.7; color: var(--text-light); }
+.article-page article ul, .article-page article ol { padding-left: 1.5rem; }
 .article-page article a {
-    color: var(--accent-color);
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-    transition: all 0.2s ease;
+    color: var(--accent-color); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(59, 130, 246, 0.3); transition: all 0.2s ease;
 }
-
-.article-page article a:hover {
-    color: var(--accent-hover-color);
-    background-color: rgba(59, 130, 246, 0.1);
-}
+.article-page article a:hover { color: var(--accent-hover-color); background-color: rgba(59, 130, 246, 0.1); }

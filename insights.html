@@ -8,43 +8,74 @@
 </head>
 <body id="page-insights">
 
-<header class="navbar">
+<!-- Desktop Header -->
+<header class="desktop-header">
     <a href="index.html" class="nav-logo">Modpack Notes</a>
-    <nav class="nav-links">
+    <nav class="desktop-nav-links">
         <ul>
             <li class="nav-performance"><a href="index.html">Performance</a></li>
             <li class="nav-bugfixing"><a href="bugfixing.html">Bugfixing</a></li>
             <li class="nav-qol"><a href="qol.html">QOL</a></li>
             <li class="nav-cosmetics"><a href="cosmetics.html">Cosmetics</a></li>
-            <!-- New Overhauls Dropdown -->
-            <li class="nav-overhauls dropdown">
-                <a href="overhauls_blog.html">Overhauls</a>
-                <ul class="dropdown-content">
-                    <li><a href="villagers.html">Villagers & Illagers</a></li>
-                    <li><a href="enchanting.html">Enchanting System</a></li>
-                    <li><a href="transport.html">Travel & Transport</a></li>
-                </ul>
-            </li>
+            <li class="nav-overhauls"><a href="overhauls_blog.html">Overhauls</a></li>
             <li class="nav-insights"><a href="insights.html">Insights</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- Mobile Footer Navigation -->
+<nav class="mobile-footer">
+    <a href="index.html" class="nav-performance">
+        <span>Performance</span>
+    </a>
+    <a href="bugfixing.html" class="nav-bugfixing">
+        <span>Bugfixing</span>
+    </a>
+    <a href="qol.html" class="nav-qol">
+        <span>QOL</span>
+    </a>
+    <a href="cosmetics.html" class="nav-cosmetics">
+        <span>Cosmetics</span>
+    </a>
+    <a href="overhauls_blog.html" class="nav-overhauls">
+        <span>Overhauls</span>
+    </a>
+    <a href="insights.html" class="nav-insights">
+        <span>Insights</span>
+    </a>
+</nav>
+
 <main>
     <h1>Insights</h1>
-    <details open>
+    <details>
         <summary>Insight: Overpowered Botany Pots</summary>
         <div class="description-content">
             <p>Clause, in a day, got supremium essence and full supremium tools just from chunkloading x4 botany pots of inferium seeds (he also had insanium land). <strong>Verdict:</strong> Botany pots, especially tiered addons, too OP. Remove in next modpack. The point of MA is to be extremely grindy early on, even with the help of phytogenic insolators from TE and garden cloches from IE.</p>
         </div>
     </details>
-    <details open>
+    <details>
         <summary>QoL Idea: Concrete Powder Conversion</summary>
         <div class="description-content">
             <p>Even with all the mods we have, throwing concrete powder into water as dropped item form doesn't convert all into concrete? You have to place them down? There is no reason whatsoever to not have this. Need to find datapack or mod to do this.</p>
         </div>
     </details>
 </main>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksContainer = document.querySelector('.nav-links-container');
 
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('is-active');
+        navLinksContainer.classList.toggle('is-active');
+    });
+
+    // Optional: Close menu when a link is clicked
+    navLinksContainer.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            hamburger.classList.remove('is-active');
+            navLinksContainer.classList.remove('is-active');
+        }
+    });
+</script>
 </body>
 </html>
